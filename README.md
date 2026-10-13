@@ -1,60 +1,42 @@
-========================================================================
-MINI PROJECT UTS: PEMROGRAMAN FUNGSIONAL (SCALA 3)
-JUDUL: Sistem Manajemen Gudang Tembakau (Bal Bako)
-KELOMPOK 9
-ANGGOTA: 
-1. Dava Julian E. P. (NIM: 3074)
-2. Hayden Putra P. M. (NIM: 3040)
-========================================================================
+# Sistem Manajemen Gudang Tembakau (Bal Bako)
 
-1. DESKRIPSI SINGKAT
-Aplikasi berbasis console ini dirancang untuk mengelola data penerimaan 
-bal tembakau (Bal Bako). Program menerapkan prinsip Functional Programming 
-(FP) untuk memproses grade tembakau, menentukan tindakan gudang berdasarkan 
-kadar air, menghitung estimasi penyusutan berat akibat fermentasi, dan 
-menampilkan laporan tanpa mengubah data asli (Immutability).
+## Prasyarat Sistem
+Pastikan perangkat Anda telah terinstal:
+- **Java Development Kit (JDK)** versi 11 atau lebih baru.
+- **Scala 3.**
 
-2. PRASYARAT SISTEM
-- Java Development Kit (JDK) versi 11 atau lebih baru.
-- Scala 3 Compiler (bisa melalui Scala CLI atau IntelliJ IDEA dengan plugin Scala).
+## Persiapan File
+1. Buat folder baru di komputer Anda (misalnya di VS Code).
+2. Download atau clone repository ini ke dalam folder tersebut.
+3. Pastikan file utama program bernama `tspff.scala` (atau sesuaikan nama file jika Anda mengubahnya).
 
-3. CARA MENJALANKAN PROGRAM
-Pilih salah satu dari dua metode di bawah ini sesuai dengan lingkungan pengembangan yang Anda gunakan:
+## Cara Menjalankan Program
 
-[METODE A: Menggunakan Scala CLI (Paling Cepat & Direkomendasikan)]
-1. Pastikan `scala-cli` sudah terinstal di komputer Anda.
-2. Buka Terminal atau Command Prompt.
-3. Arahkan direktori (cd) ke folder tempat file kode ini disimpan.
-   Contoh: cd path/ke/folder/proyek
-4. Jalankan perintah berikut (sesuaikan 'SistemBalBako.scala' dengan nama file asli Anda):
-   scala-cli run SistemBalBako.scala
-5. Program akan berjalan dan meminta input jumlah bal tembakau.
+Ikuti langkah-langkah berikut melalui Terminal VSCode:
 
-[METODE B: Menggunakan IntelliJ IDEA]
-1. Buka IntelliJ IDEA, lalu pilih "Open" dan arahkan ke folder proyek ini.
-2. Pastikan Project SDK sudah diatur ke JDK yang valid, dan Scala SDK sudah terkonfigurasi (Scala 3.x).
-3. Buka file sumber kode utama (misalnya: `SistemBalBako.scala`).
-4. Gulir ke bagian paling bawah hingga menemukan baris: `@main def main(): Unit =`
-5. Klik ikon "Play" (Segitiga hijau) yang muncul di sebelah kiri baris `@main`, atau klik kanan di area kode tersebut lalu pilih "Run 'SistemBalBako'".
-6. Program akan berjalan di panel "Run" di bagian bawah IntelliJ.
+**1. Ubah directory terminal:**
+```bash
+cd path/ke/folder/proyek-anda
+```
+**2. Jalankan kode**
+```bash
+scala-cli run tspff.scala
+```
 
-4. PANDUAN INPUT USER
-Saat program berjalan, Anda akan diminta memasukkan data secara berurutan:
-- Jumlah total bal yang akan diinput (angka bulat, misal: 2).
-- Untuk setiap bal, masukkan:
-  * ID Bal (String, misal: TB-01)
-  * Berat awal (Desimal/Double, misal: 100.5)
-  * Kadar Air % (Desimal/Double, misal: 15.0)
-  * Posisi Daun (String: "bawah", "tengah", atau "atas")
+## Panduan Pengisian
+```text
+=== SISTEM BALBAKO ===
+Masukkan jumlah Bal yang akan diinput: 2
 
-5. PEMETAAN KONSEP FUNCTIONAL PROGRAMMING DALAM KODE
-- Immutability: Penggunaan `case class` untuk `BalBako` dan `BalGiling` menjamin data tidak dimutasi (hanya `val`).
-- Pure Function & Conditional: Fungsi `tentukanGrade` dan `lossRateFermentasi` menggunakan `match` tanpa side-effect.
-- Function Composition: `val tindakanGudang = ambilKadarAir andThen tentukanTindakan` (Materi PDF 6).
-- Function Chaining: Penggunaan `.filter(...).map(...)` pada method `ambilBalIdeal` untuk memproses List tanpa loop `for`/`while` (Materi PDF 1 & 6).
-- Higher-Order Function: Fungsi `ambilInfoBal` yang menerima parameter berupa fungsi lambda (`formatter`).
-- Tail Recursion: Fungsi `inputUser` (untuk input berulang) dan `hitungTotalEstimasiBerat` (untuk akumulasi total) menggunakan anotasi `@tailrec` dengan base case dan recursive case yang jelas, tanpa variabel `var` (Materi PDF 7).
+--- Masukkan Data Bal ke-1 ---
+ID Bal (misal: TB-01): TB-01
+Berat awal (Kg): 100.5
+Kadar Air (%): 15.0
+Posisi Daun (bawah/tengah/atas): atas
 
-6. CATATAN
-Source code, diagram alur, dan materi presentasi (PPT) disertakan dalam paket pengumpulan yang sama.
-========================================================================
+--- Masukkan Data Bal ke-2 ---
+ID Bal (misal: TB-01): TB-02
+Berat awal (Kg): 95.0
+Kadar Air (%): 19.5
+Posisi Daun (bawah/tengah/atas): bawah
+```
