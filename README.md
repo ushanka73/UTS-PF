@@ -6,7 +6,7 @@ Pastikan perangkat Anda telah terinstal:
 - **Scala 3.**
 
 ## Persiapan File
-1. Buat folder baru di komputer Anda (misalnya di VS Code).
+1. Buat folder baru di komputer Anda (misalnya di VSCode).
 2. Download atau clone repository ini ke dalam folder tersebut.
 3. Pastikan file utama program bernama `tspff.scala` (atau sesuaikan nama file jika Anda mengubahnya).
 
